@@ -19,6 +19,23 @@ header h1 {
   font-size: 3.5em;
 }
 
+form > * {
+  margin: 0 5px;
+}
+
+select {
+  height: 2em;
+}
+
+input[type="text"] {
+  height: 1.7em;
+  padding: 0px 5px;
+}
+
+button[type="submit"] {
+  height: 2em;
+}
+
 .searchForm {
   height: 75vh;
   margin: 0 0 2em 0;
@@ -39,4 +56,32 @@ header h1 {
 .results.hidden {
   opacity: 0;
   height: 0;
+}
+
+.clearSearch {
+  float: right;
+  background-color: transparent;
+  border: 0;
+  color: red;
+  cursor: pointer;
+}
+
+.loaderMsg {
+  text-align: center;
+  color: purple;
+  animation: loader infinite .5s linear;
+}
+
+.errMsg {
+  text-align: center;
+  color: red;
+}
+
+@keyframes loader {
+  from {
+    color: blue;
+  }
+  to {
+    color: white;
+  }
 }

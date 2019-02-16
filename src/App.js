@@ -11,14 +11,14 @@ class App extends Component {
       loading: false,
       error: null,
       searched: false,
-      searchCategory: '',
+      searchCategory: 'planets',
       searchQuery: '',
+      searchResults: []
     }
   }
 
-  updateInput = (e) => {
-    this.setState({searchQuery: e.target.value});
-  }
+  updateQuery = (e) => { this.setState({searchQuery: e.target.value}); }
+  updateCategory = (e) => { this.setState({searchCategory: e.target.value}); }
 
   clearSearch = () => {
     this.setState({
@@ -30,7 +30,22 @@ class App extends Component {
 
   runSearch = (e) => {
     e.preventDefault();
-    this.setState({searched: true});
+    this.setState({
+      searched: true,
+      loading: true
+    });
+
+    fetch(`https://swapi.co/api/${this.state.searchCategory}/?search=${this.state.searchQuery}`)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          loading: false,
+          searchResults: json.results
+        });
+      })
+      .catch(err => {
+        this.setState({error: err.message});
+      });
   }
 
   render() {
@@ -38,10 +53,14 @@ class App extends Component {
       <main>
         <SearchForm 
           searched={this.state.searched}
-          updateInput={this.updateInput}
+          updateQuery={this.updateQuery}
+          updateCategory={this.updateCategory}
           runSearch={this.runSearch} />
         <Results
+          loading={this.state.loading}
           searched={this.state.searched}
+          error={this.state.error}
+          results={this.state.searchResults}
           clearSearch={this.clearSearch} />
       </main>
     );

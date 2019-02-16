@@ -11,7 +11,15 @@ export default class SearchForm extends React.Component {
         </header>
         
         <form onSubmit={this.props.runSearch}>
-          <input type="text" onChange={(e) => this.props.updateInput(e)}></input>
+          <select onChange={(e) => this.props.updateCategory(e)}>
+            <option value="planets">Planets</option>
+            <option value="starships">Spaceships</option>
+            <option value="vehicles">Vehicles</option>
+            <option value="people">People</option>
+            <option value="films">Films</option>
+            <option value="species">Species</option>
+          </select>
+          <input type="text" onChange={(e) => this.props.updateQuery(e)}></input>
           <button type="submit">Search</button>
         </form>
       </section>
