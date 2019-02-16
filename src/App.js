@@ -23,8 +23,6 @@ class App extends Component {
   clearSearch = () => {
     this.setState({
       searched: false,
-      searchQuery: '',
-      searchCategory: ''
     });
   }
 
