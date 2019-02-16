@@ -1,26 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SearchForm from './SearchForm';
+import Results from './Results';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+      error: null,
+      searched: false,
+      searchCategory: '',
+      searchQuery: '',
+    }
+  }
+
+  updateInput = (e) => {
+    this.setState({searchQuery: e.target.value});
+  }
+
+  clearSearch = () => {
+    this.setState({
+      searched: false,
+      searchQuery: '',
+      searchCategory: ''
+    });
+  }
+
+  runSearch = (e) => {
+    e.preventDefault();
+    this.setState({searched: true});
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <main>
+        <SearchForm 
+          searched={this.state.searched}
+          updateInput={this.updateInput}
+          runSearch={this.runSearch} />
+        <Results
+          searched={this.state.searched}
+          clearSearch={this.clearSearch} />
+      </main>
     );
   }
 }

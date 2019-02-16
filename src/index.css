@@ -8,7 +8,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+main {
+  width: 75%;
+  margin: 2.5em auto 0 auto;
+}
+
+header h1 {
+  margin: 0 0 3%;
+  text-align: center;
+  font-size: 3.5em;
+}
+
+.searchForm {
+  height: 75vh;
+  margin: 0 0 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s ease 0s;
+}
+
+.searchForm.minimized { height: 15vh }
+
+.results {
+  transition: 1s ease 0s;
+  opacity: 1;
+}
+
+.results.hidden {
+  opacity: 0;
+  height: 0;
 }
