@@ -1,6 +1,12 @@
+@font-face {
+  font-family: 'Star Jedi';
+  src: url('font/Starjedi.ttf');
+}
+
 body {
   margin: 0;
   padding: 0;
+  background-color: #09092b;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -16,7 +22,13 @@ main {
 header h1 {
   margin: 0 0 3%;
   text-align: center;
-  font-size: 3.5em;
+  font-size: 2.75em;
+  color: yellow;
+  font-family: 'Star Jedi';
+  border: 4px solid yellow;
+  padding: 0 7px 9px 18px;
+  border-radius: 7px;
+  line-height: 0.9em;
 }
 
 form > * {
@@ -25,20 +37,38 @@ form > * {
 
 select {
   height: 2em;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid white;
+  color: #fff;
 }
 
+form { margin: 10px 0; text-align: center }
+
+select option { color: #000 }
+
 input[type="text"] {
+  width: 60%;
   height: 1.7em;
   padding: 0px 5px;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid white;
+  color: #fff;
 }
 
 button[type="submit"] {
   height: 2em;
+  width: 100%;
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  margin: 15px 0;
 }
 
 .searchForm {
   height: 75vh;
-  margin: 0 0 2em 0;
+  margin: 5em 0 3em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,6 +88,10 @@ button[type="submit"] {
 .results.hidden {
   opacity: 0;
   max-height: 0;
+}
+
+.results li {
+  color: #fff;
 }
 
 .clearSearch {
