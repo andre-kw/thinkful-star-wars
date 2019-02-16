@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "star-wars-search",
+  "alias": "andre-kw-star-wars",
+  "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+  ]
+}
