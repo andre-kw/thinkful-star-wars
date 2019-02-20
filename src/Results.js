@@ -30,7 +30,7 @@ export default class Results extends React.Component {
         <button className="clearSearch" onClick={() => this.props.clearSearch()}>Clear search</button>
         <ul>
           {this.props.results.map((r, index) => <Result key={index} item={r} type={this.category} data={this.props.data} />)}
-          {(this.props.results.length === 0) ? <p>Didn't find anything</p> : ''}
+          {(this.props.results.length === 0) ? <p className="notFoundMsg">Didn't find anything</p> : ''}
         </ul>
         </>
       );
