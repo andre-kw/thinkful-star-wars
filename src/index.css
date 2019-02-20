@@ -43,6 +43,7 @@ small {
 
 form {
   width: 75%;
+  max-width: 30em;
   margin: 1.5em 0;
   display: flex;
   text-align: center;

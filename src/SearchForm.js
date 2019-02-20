@@ -20,7 +20,7 @@ export default class SearchForm extends React.Component {
             <option value="films">Films</option>
             <option value="species">Species</option>
           </select>
-          <input type="text" onChange={(e) => this.props.updateQuery(e)}></input>
+          <input id="query" type="text" onChange={(e) => this.props.updateQuery(e)} autocomplete="off" placeholder="search the star wars database"></input>
           <button type="submit">Search</button>
         </form>
       </section>

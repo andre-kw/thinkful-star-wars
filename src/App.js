@@ -19,7 +19,14 @@ class App extends Component {
 
   updateQuery = (e) => { this.setState({searchQuery: e.target.value}); }
   updateCategory = (e) => { this.setState({searchCategory: e.target.value}); }
-  clearSearch = () => { this.setState({searched: false}); }
+
+  clearSearch = () => {
+    let q = document.getElementById('query');
+    q.value = '';
+    q.focus();
+
+    this.setState({searched: false, searchQuery: ''});
+  }
 
   runSearch = (e) => {
     e.preventDefault();
