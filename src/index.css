@@ -4,6 +4,10 @@
   src: url('font/Starjedi.ttf');
 }
 
+html {
+  background-color: black;
+}
+
 body {
   margin: 0;
   padding: 0;
