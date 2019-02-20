@@ -8,6 +8,7 @@ export default class SearchForm extends React.Component {
       <section className={classname}>
         <header>
           <h1>Star Wars Search</h1>
+          <small>a dope star wars utility made by andre willie</small>
         </header>
         
         <form onSubmit={this.props.runSearch}>

@@ -1,6 +1,17 @@
 import React from 'react';
+import Result from './Result';
 
 export default class Results extends React.Component {
+  constructor(props) {
+    super(props);
+
+    let category = '';
+  }
+
+  componentDidUpdate() {
+    this.category = this.props.searchCategory;
+  }
+
   render() {
     let classname = (this.props.searched) ? 'results' : 'results hidden';
     let jsx = '';
@@ -18,7 +29,8 @@ export default class Results extends React.Component {
         <>
         <button className="clearSearch" onClick={() => this.props.clearSearch()}>Clear search</button>
         <ul>
-          {this.props.results.map((r, index) => <li key={index}>{r.name}</li>)}
+          {this.props.results.map((r, index) => <Result key={index} item={r} type={this.category} data={this.props.data} />)}
+          {(this.props.results.length === 0) ? <p>Didn't find anything</p> : ''}
         </ul>
         </>
       );

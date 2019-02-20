@@ -19,12 +19,7 @@ class App extends Component {
 
   updateQuery = (e) => { this.setState({searchQuery: e.target.value}); }
   updateCategory = (e) => { this.setState({searchCategory: e.target.value}); }
-
-  clearSearch = () => {
-    this.setState({
-      searched: false,
-    });
-  }
+  clearSearch = () => { this.setState({searched: false}); }
 
   runSearch = (e) => {
     e.preventDefault();
@@ -36,14 +31,37 @@ class App extends Component {
     fetch(`https://swapi.co/api/${this.state.searchCategory}/?search=${this.state.searchQuery}`)
       .then(res => res.json())
       .then(json => {
+        let results = json.results.sort((a, b) => {
+          let x = a.name || a.title;
+          let y = b.name || b.title;
+
+          return x > y ? 1 : x === y ? 0 : -1;
+        });
+
         this.setState({
           loading: false,
-          searchResults: json.results
+          searchResults: results
         });
       })
       .catch(err => {
         this.setState({error: err.message});
       });
+  }
+
+  componentDidMount() {
+    Promise.all([
+      fetch('https://swapi.co/api/species/').then(res => res.json()),
+      fetch('https://swapi.co/api/planets/').then(res => res.json())
+    ])
+    .then(([species, homeworld]) => {
+      // do all of our stuff in here
+      this.setState({
+        data: {
+          species: species.results,
+          homeworld: homeworld.results
+        }
+      });
+    });
   }
 
   render() {
@@ -59,7 +77,9 @@ class App extends Component {
           searched={this.state.searched}
           error={this.state.error}
           results={this.state.searchResults}
-          clearSearch={this.clearSearch} />
+          clearSearch={this.clearSearch}
+          searchCategory={this.state.searchCategory}
+          data={this.state.data} />
       </main>
     );
   }
