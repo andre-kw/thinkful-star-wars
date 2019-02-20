@@ -7,8 +7,8 @@ export default function Result(props) {
 
   switch(props.type) {
     case 'people':
-      const speciesUrl = props.item.species;
-      const speciesId = parseInt(speciesUrl[0].substring(29, 33));
+      const speciesUrl = props.item.species[0] || '';
+      const speciesId = parseInt(speciesUrl.substring(29, 33));
       const species = props.data.species[speciesId] || {name:'unknown species'};
       const homeworldUrl = props.item.homeworld;
       const homeworldId = parseInt(homeworldUrl.substring(29, 33));
