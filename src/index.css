@@ -67,7 +67,7 @@ button[type="submit"] {
 }
 
 .searchForm {
-  height: 75vh;
+  height: 65vh;
   margin: 5em 0 1.2em;
   display: flex;
   flex-direction: column;
@@ -96,10 +96,11 @@ button[type="submit"] {
   text-align: center;
   list-style-type: none;
   padding: 0;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .results li {
+  margin: 0 0 0.25em;
   color: #fff;
 }
 
