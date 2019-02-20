@@ -9,10 +9,10 @@ export default function Result(props) {
     case 'people':
       const speciesUrl = props.item.species;
       const speciesId = parseInt(speciesUrl[0].substring(29, 33));
-      const species = props.data.species[speciesId];
+      const species = props.data.species[speciesId] || {name:'unknown species'};
       const homeworldUrl = props.item.homeworld;
       const homeworldId = parseInt(homeworldUrl.substring(29, 33));
-      const homeworld = props.data.homeworld[homeworldId] || {name:'unknown'};
+      const homeworld = props.data.homeworld[homeworldId] || {name:'unknown origin'};
 
       info = <div>
         <p>gender <span>{props.item.gender}</span></p>
@@ -23,25 +23,32 @@ export default function Result(props) {
       break;
 
     case 'films':
-      title = <em>{props.item.title}</em>;
+      title = <em><span>Ep. {props.item.episode_id}</span> {props.item.title}</em>;
+
+      info = <div>
+        <p>director <span>{props.item.director}</span></p>
+        <p>released <span>{props.item.release_date}</span></p>
+      </div>;
       break;
     
     case 'starships':
-      cost = Number(props.item.cost_in_credits).toLocaleString();
+      cost = props.item.cost_in_credits;
+      cost = (cost === 'unknown') ? '???' : Number(cost).toLocaleString() + ' galactic credits';
 
       info = <div>
         <p>class <span>{props.item.starship_class}</span></p>
-        <p>cost <span>{cost} galactic credits</span></p>
+        <p>cost <span>{cost}</span></p>
         <p>manufacturer <span>{props.item.manufacturer}</span></p>
       </div>;
       break;
 
     case 'vehicles':
-      cost = Number(props.item.cost_in_credits).toLocaleString();
+      cost = props.item.cost_in_credits;
+      cost = (cost === 'unknown') ? '???' : Number(cost).toLocaleString() + ' galactic credits';
 
       info = <div>
         <p>class <span>{props.item.vehicle_class}</span></p>
-        <p>cost <span>{cost} galactic credits</span></p>
+        <p>cost <span>{cost}</span></p>
         <p>manufacturer <span>{props.item.manufacturer}</span></p>
       </div>;
       break;

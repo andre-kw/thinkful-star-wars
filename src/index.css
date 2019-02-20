@@ -9,7 +9,7 @@ body {
   padding: 0;
   background-color: #09092b;
   font-family: "Inconsolata", sans-serif;
-  background: url(http://ilcsi-gif.portfolioz.net/galeria/csillagok/4/333.gif);
+  background: url('http://ilcsi-gif.portfolioz.net/galeria/csillagok/4/333.gif');
   background-size: 85%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
