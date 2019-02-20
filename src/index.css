@@ -8,11 +8,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: #09092b;
+  font-family: "Inconsolata", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-body,input { font-family: "Inconsolata", sans-serif; }
 
 main {
   width: 75%;
@@ -48,6 +47,7 @@ select {
   border: 0;
   border-bottom: 2px solid white;
   color: #fff;
+  font-family: inherit;
 }
 
 form { margin: 1.5em 0; text-align: center }
@@ -62,18 +62,24 @@ input[type="text"] {
   border: 0;
   border-bottom: 2px solid white;
   color: #fff;
+  font-family: inherit;
 }
 
 em { color: yellow }
 
-button[type="submit"] {
+button {
   height: 2em;
   width: 92%;
   background-color: #fff;
   border: 0;
   cursor: pointer;
   margin: 15px 0;
+  font-family: inherit;
+  border-radius: 3px;
+  border-bottom: 3px solid gray;
 }
+
+button:hover { font-weight: bold; cursor: pointer }
 
 .searchForm {
   height: 65vh;
