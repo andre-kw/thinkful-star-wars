@@ -72,6 +72,7 @@ export default function Result(props) {
         <p>avg. lifespan <span>{props.item.average_lifespan} years</span></p>
         <p>avg. height <span>{props.item.average_height}cm</span></p>
       </div>;
+      break;
 
     default:
       // nothing
