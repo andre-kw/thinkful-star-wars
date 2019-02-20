@@ -68,7 +68,7 @@ button[type="submit"] {
 
 .searchForm {
   height: 75vh;
-  margin: 5em 0 3em;
+  margin: 5em 0 1.2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,16 +90,26 @@ button[type="submit"] {
   max-height: 0;
 }
 
+.results ul {
+  max-width: 20em;
+  margin: 0 auto;
+  text-align: center;
+  list-style-type: none;
+  padding: 0;
+  font-size: 1.5em;
+}
+
 .results li {
   color: #fff;
 }
 
 .clearSearch {
-  float: right;
   background-color: transparent;
   border: 0;
   color: red;
   cursor: pointer;
+  margin: 0 auto 3em auto;
+  display: block;
 }
 
 .loaderMsg {
