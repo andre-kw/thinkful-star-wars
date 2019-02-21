@@ -7,12 +7,20 @@ export default function Result(props) {
 
   switch(props.type) {
     case 'people':
-      const speciesUrl = props.item.species[0] || '';
-      const speciesId = parseInt(speciesUrl.substring(29, 33));
-      const species = props.data.species[speciesId] || {name:'unknown species'};
-      const homeworldUrl = props.item.homeworld;
-      const homeworldId = parseInt(homeworldUrl.substring(29, 33));
-      const homeworld = props.data.homeworld[homeworldId] || {name:'unknown origin'};
+      let species = {name: 'unknown species'};
+      let homeworld = {name: 'unknown origin'};
+
+      if(typeof props.item.species !== 'undefined') {
+        if(props.item.species.length > 0) {
+          const speciesId = parseInt(props.item.species[0].substring(29, 33));
+          species = props.data.species[speciesId] || {name: 'unknown species'};
+        }
+      }
+
+      if(typeof props.item.homeworld !== 'undefined') {
+        const homeworldId = parseInt(props.item.homeworld.substring(29, 33));
+        homeworld = props.data.homeworld[homeworldId] || {name: 'unknown origin'};
+      }
 
       info = <div>
         <p>gender <span>{props.item.gender}</span></p>

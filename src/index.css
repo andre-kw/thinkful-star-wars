@@ -5,8 +5,7 @@
 }
 
 html {
-  background: url('http://ilcsi-gif.portfolioz.net/galeria/csillagok/4/333.gif');
-  background-size: 85%;
+  background: url('./img/star.jpg');
 }
 
 body {
@@ -108,7 +107,7 @@ button:hover { font-weight: bold; cursor: pointer }
 .searchForm.minimized { height: 20rem; }
 
 @media only screen and (min-width: 426px) {
-  .searchForm.minimized { height: 10rem; }
+  .searchForm.minimized { height: 13rem; }
 }
 
 .results {
